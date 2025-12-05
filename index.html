@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nivara Consultancy | Startup Solutions</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/feather-icons"></script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",sans-serif;}
+body{background:#0c0c0c;color:#eee;line-height:1.7;scroll-behavior:smooth;}
+.section{padding:110px 30px;max-width:1300px;margin:auto;opacity:0;transform:translateY(60px);transition:1s ease;}
+.section.visible{opacity:1;transform:translateY(0);}
+h2{font-size:2.5rem;font-weight:700;color:#e8c573;text-align:center;margin-bottom:20px;}
+.subtitle{font-size:1.1rem;color:#ccc;text-align:center;max-width:900px;margin:auto;}
+header{background: linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.85)),
+url("https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1500&q=80");
+height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:20px;}
+header h1{font-size:3.8rem;font-weight:700;color:#e8c573;}
+header p{font-size:1.2rem; max-width:780px; margin-top:10px;}
+.btn{margin-top:30px;padding:14px 34px;background:#e8c573;color:#111;font-weight:600;border-radius:9px;font-size:1.05rem;text-decoration:none;}
+nav{background:#111;padding:16px 0;position:fixed;top:0;width:100%;z-index:999;text-align:center;backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.08);}
+nav a{color:white;margin:0 20px;font-size:1rem;text-decoration:none;transition:.3s;}
+nav a:hover{color:#e8c573;}
+.card{background:rgba(255,255,255,0.05);padding:32px;border-radius:14px;border:1px solid rgba(255,255,255,0.1);transition:.3s;}
+.card:hover{border-color:#e8c573;transform:translateY(-8px);}
+.stats{margin-top:60px;display:flex;justify-content:space-around;gap:30px;flex-wrap:wrap;}
+.stat{padding:32px;width:240px;background:rgba(255,255,255,0.04);border-radius:14px;text-align:center;border:1px solid rgba(255,255,255,0.1);}
+.stat h3{font-size:2.4rem;color:#e8c573;}
+.services{margin-top:60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:35px;}
+.service-box i{color:#e8c573;margin-bottom:10px;font-size:2rem;}
+.team-grid{margin-top:60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:35px;}
+.team-box img{width:120px;height:120px;border-radius:50%;margin-bottom:10px;transition:0.3s;}
+.team-box img:hover{transform:scale(1.05);box-shadow:0 0 20px rgba(232,197,115,0.5);}
+.pricing-grid{display:flex;gap:30px;flex-wrap:wrap;justify-content:center;margin-top:60px;}
+.price-box{padding:32px;width:280px;text-align:center;}
+.price-box .price{font-size:2.2rem;color:#e8c573;}
+.blog-grid{margin-top:60px;display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:35px;}
+.blog-box img{width:100%;border-radius:12px;margin-bottom:10px;}
+form{max-width:650px;margin:50px auto;}
+input,textarea{width:100%;padding:13px;border:1px solid #444;background:#0c0c0c;color:white;border-radius:9px;font-size:1rem;margin-bottom:12px;}
+button{padding:14px;width:100%;background:#e8c573;border:none;font-weight:700;font-size:1.1rem;border-radius:9px;}
+.float-contact{position:fixed;bottom:30px;right:30px;background:#e8c573;color:#000;padding:16px 22px;border-radius:50px;font-weight:700;text-decoration:none;box-shadow:0 0 15px rgba(232,197,115,0.5);}
+footer{text-align:center;margin-top:60px;padding:26px;color:#999;font-size:.9rem;}
+.testimonial{background:rgba(255,255,255,0.03);border-radius:14px;padding:30px;margin:20px;text-align:center;transition:.3s;}
+.testimonial:hover{transform:translateY(-5px);border-color:#e8c573;}
+
+/* RESPONSIVE MEDIA QUERIES */
+
+/* Tablets (width <= 1024px) */
+@media (max-width: 1024px){
+    header h1{font-size:3rem;}
+    header p{font-size:1.1rem;}
+    .section{padding:90px 20px;}
+    nav a{margin:0 15px;font-size:0.95rem;}
+    .stat{width:200px;padding:24px;}
+    .price-box{width:240px;padding:24px;}
+}
+
+/* Small tablets / large mobiles (width <= 768px) */
+@media (max-width: 768px){
+    header h1{font-size:2.5rem;}
+    header p{font-size:1rem;}
+    nav a{margin:0 10px;font-size:0.9rem;}
+    .stats{flex-direction:column;align-items:center;}
+    .stat{width:90%;margin-bottom:20px;}
+    .pricing-grid{flex-direction:column;align-items:center;}
+    .price-box{width:90%;margin-bottom:20px;}
+    .services{grid-template-columns:1fr;}
+    .team-grid{grid-template-columns:1fr;}
+    .blog-grid{grid-template-columns:1fr;}
+}
+
+/* Mobile phones (width <= 480px) */
+@media (max-width: 480px){
+    header{padding:60px 15px;}
+    header h1{font-size:2rem;}
+    header p{font-size:0.9rem;}
+    .btn{padding:12px 28px;font-size:0.95rem;}
+    nav a{margin:0 8px;font-size:0.85rem;}
+    .section{padding:70px 15px;}
+    .stat h3{font-size:2rem;}
+    .price-box .price{font-size:1.8rem;}
+}
+</style>
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+<a href="#about">About</a>
+<a href="#services">Services</a>
+<a href="#team">Team</a>
+<a href="#pricing">Pricing</a>
+<a href="#blog">Insights</a>
+<a href="#testimonials">Testimonials</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<!-- HEADER -->
+<header>
+<h1>Nivara Consultancy</h1>
+<p>Helping startups and small businesses grow smartly, digitally, and strategically.</p>
+<a href="#contact" class="btn">Book Consultation</a>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="section">
+<h2>About Nivara</h2>
+<p class="subtitle">Founded by Keyur Patel, Nivara Consultancy empowers startups with affordable, high-impact strategies. We focus on business growth, digital transformation, and sustainable scaling.</p>
+<div class="stats">
+<div class="stat"><h3 data-count="75">0</h3><p>Clients Served</p></div>
+<div class="stat"><h3 data-count="15">0</h3><p>Markets Entered</p></div>
+<div class="stat"><h3 data-count="5">0</h3><p>Countries</p></div>
+<div class="stat"><h3 data-count="98">0</h3><p>Client Satisfaction %</p></div>
+</div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+<h2>Our Services</h2>
+<div class="services">
+<div class="card service-box"><i data-feather="target"></i><h3>Business Strategy</h3><p>Market analysis, growth roadmap, and startup mentoring.</p></div>
+<div class="card service-box"><i data-feather="cpu"></i><h3>Digital Setup</h3><p>Website, automation, social media, and digital marketing for startups.</p></div>
+<div class="card service-box"><i data-feather="bar-chart-2"></i><h3>Financial Advisory</h3><p>Budget planning, cash flow management, and investment guidance.</p></div>
+<div class="card service-box"><i data-feather="globe"></i><h3>Expansion Guidance</h3><p>Strategies to enter new markets and scale efficiently.</p></div>
+</div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="section">
+<h2>Meet Our Team</h2>
+<p class="subtitle">Led by Keyur Patel, our team includes industry experts and advisors to support your growth journey.</p>
+<div class="team-grid">
+<div class="card team-box" style="text-align:center;">
+<h3 style="color:#e8c573;">Keyur Patel</h3>
+<p style="color:#ccc;">Founder & CEO</p>
+<p style="color:#aaa;font-size:0.95rem;max-width:280px;margin:auto;">Business strategist with 7+ years experience helping startups scale efficiently.</p>
+<div style="display:flex;justify-content:center;gap:15px;margin-top:10px;">
+<a href="mailto:keyur9744@gmail.com" style="color:#e8c573;"><i data-feather="mail"></i></a>
+<a href="tel:+919586490706" style="color:#e8c573;"><i data-feather="phone"></i></a>
+<a href="#" style="color:#e8c573;"><i data-feather="linkedin"></i></a>
+<a href="#" style="color:#e8c573;"><i data-feather="twitter"></i></a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" class="section">
+<h2>Startup-Friendly Plans</h2>
+<div class="pricing-grid">
+<div class="card price-box"><h3>Starter</h3><div class="price">5,000</div><p>1 Strategy Session<br>Email Support</p></div>
+<div class="card price-box" style="border-color:#e8c573;"><h3>Growth</h3><div class="price">12,000</div><p>Full Monthly Consulting<br>Weekly Calls</p></div>
+<div class="card price-box"><h3>Accelerator</h3><div class="price">25,000</div><p>Complete Advisory<br>24/7 Support</p></div>
+</div>
+</section>
+
+<!-- BLOG -->
+<section id="blog" class="section">
+<h2>Startup Insights</h2>
+<div class="blog-grid">
+<div class="card blog-box"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&w=800&q=80"><h3>Smart Growth Tactics for Startups</h3></div>
+<div class="card blog-box"><img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?auto=format&w=800&q=80"><h3>Digital Marketing Essentials 2025</h3></div>
+<div class="card blog-box"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&w=800&q=80"><h3>Financial Planning Tips for New Businesses</h3></div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="section">
+<h2>Client Testimonials</h2>
+<p class="subtitle">Hear from startups who achieved growth with Nivara Consultancy.</p>
+<div class="team-grid">
+<div class="testimonial card"><p>"Nivara helped our startup launch in record time. Keyur strategies are practical and effective."</p><strong>- Priya Sharma, Founder</strong></div>
+<div class="testimonial card"><p>"Affordable and highly professional consultancy. Our digital presence grew 3x in 6 months."</p><strong>- Ankit Verma, CEO</strong></div>
+<div class="testimonial card"><p>"Keyur and team guided us on funding and scaling. The insights are invaluable."</p><strong>- Rhea Kapoor, Entrepreneur</strong></div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="section">
+<h2>Contact Keyur Patel</h2>
+<form onsubmit="contact(event)">
+<input type="text" placeholder="Full Name" required>
+<input type="email" placeholder="Your Email" required>
+<input type="text" placeholder="Company Name" required>
+<textarea rows="6" placeholder="Your Message"></textarea>
+<button>Send Message</button>
+</form>
+<p style="text-align:center;margin-top:20px;">Phone: +91 9586490706 | Email: keyur9744@gmail.com</p>
+</section>
+
+<footer>2025 Nivara Consultancy  All Rights Reserved</footer>
+<a class="float-contact" href="#contact">Contact</a>
+
+<script>
+feather.replace();
+
+// Scroll animations
+const sections=document.querySelectorAll(".section");
+function showSections(){sections.forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight-120){s.classList.add("visible");}});}
+window.addEventListener("scroll",showSections);showSections();
+
+// Counters
+const counters=document.querySelectorAll("[data-count]");
+let started=false;
+function runCounters(){
+if(started)return;
+if(document.querySelector(".stats").getBoundingClientRect().top<window.innerHeight){
+counters.forEach(c=>{
+let target=+c.dataset.count,count=0,speed=target/80;
+let interval=setInterval(()=>{count+=speed;if(count>=target){count=target;clearInterval(interval);}c.textContent=Math.floor(count);},25);
+});
+started=true;
+}}
+window.addEventListener("scroll",runCounters);
+
+// Contact form alert
+function contact(e){e.preventDefault();alert("Thank you! Your message has been sent. Keyur will contact you soon.");}
+</script>
+</body>
+</html>
