@@ -1,333 +1,637 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nivara Consultancy | Grow Your Small Business Smartly</title>
-<meta name="description" content="Nivara Consultancy helps small local businesses grow smartly with practical, modern, and actionable strategies. Book a free consultation today.">
-<meta name="keywords" content="small business growth, startup consulting, digital marketing for local business, business planning, business advisor">
-<meta name="author" content="Keyur Patel">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<script src="https://unpkg.com/feather-icons"></script>
+<meta charset="UTF-8" />
+<!-- Responsive viewport: good for all screens -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, maximum-scale=5.0" />
+<title>Nivara Consultancy | Smart Growth for Small Businesses</title>
+<meta name="description" content="Nivara Consultancy helps Indian small businesses grow with clear, simple and modern strategies, without corporate jargon." />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
-/* ---------------- BASIC RESET ---------------- */
-*{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",sans-serif;}
-body{background:#fafafa;color:#222;line-height:1.7;scroll-behavior:smooth;}
-.section{padding:120px 30px;max-width:1150px;margin:auto;opacity:0;transform:translateY(60px);transition:1s ease;}
-.section.visible{opacity:1;transform:translateY(0);}
-h2{font-size:2.8rem;font-weight:700;text-align:center;margin-bottom:18px;}
-.subtitle{font-size:1.2rem;color:#666;text-align:center;max-width:800px;margin:auto;line-height:1.6;}
-
-/* ---------------- NAVIGATION ---------------- */
-nav{
-    position:fixed;top:0;left:0;width:100%;
-    background:rgba(255,255,255,0.85);
-    backdrop-filter:blur(12px);
-    padding:16px 0;
-    z-index:999;border-bottom:1px solid rgba(0,0,0,0.06);
-    text-align:center;
-    transition:0.3s;
-}
-nav a{
-    margin:0 20px;color:#333;text-decoration:none;
-    font-size:1rem;font-weight:500;transition:0.3s;
-}
-nav a:hover{color:#000;letter-spacing:1px;}
-
-/* ---------------- HEADER ---------------- */
-header{
-    height:100vh;
-    padding-top:120px;
-    background:linear-gradient(135deg,#ffffff 0%,#f6f6f6 100%);
-    display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
-    transition:all 0.4s;
-}
-header:hover{box-shadow:0 0 50px rgba(0,0,0,0.06);}
-header h1{
-    font-size:3.8rem;font-weight:700;color:#000;
-    letter-spacing:-1px;margin-bottom:15px;
-}
-header p{
-    font-size:1.25rem;color:#555;max-width:750px;line-height:1.6;
-}
-.btn{
-    margin-top:35px;padding:15px 38px;border-radius:50px;
-    background:#000;color:#fff;text-decoration:none;
-    font-size:1.05rem;font-weight:600;transition:0.3s;
-}
-.btn:hover{background:#333;transform:scale(1.05);}
-
-/* ---------------- CLEAN CARDS ---------------- */
-.card{
-    padding:40px;border-radius:18px;
-    background:#fff;
-    border:1px solid rgba(0,0,0,0.06);
-    box-shadow:0 4px 35px rgba(0,0,0,0.05);
-    transition:0.4s, box-shadow 0.5s;
-}
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 12px 40px rgba(0,0,0,0.1);
-    background: linear-gradient(145deg, #fff, #f9f9f9);
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Inter", sans-serif;
+  background: #ffffff;
+  color: #111;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Gradient glow effect */
-.card::after{
-    content:"";
-    position:absolute;top:0;left:0;width:100%;height:100%;
-    border-radius:18px;
-    pointer-events:none;
-    opacity:0;
-    transition:0.5s;
-    box-shadow:0 0 20px rgba(232,197,115,0.1);
-}
-.card:hover::after{opacity:1;}
-
-/* ---------------- ABOUT STATS ---------------- */
-.stats{
-    margin-top:70px;display:flex;justify-content:space-between;
-    gap:25px;flex-wrap:wrap;
-}
-.stat{
-    width:250px;text-align:center;padding:32px 0;
-    transition:0.4s, box-shadow 0.5s;
-}
-.stat:hover{box-shadow:0 8px 35px rgba(0,0,0,0.08);border-radius:15px;}
-.stat h3{
-    font-size:2.8rem;font-weight:700;
+/* GLOBAL SPACING */
+.section {
+  padding: 120px 6vw;
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* ---------------- SERVICES ---------------- */
-.services{
-    margin-top:70px;
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:40px;
-}
-.service-box i{
-    margin-bottom:15px;
-    color:#000;
-    font-size:2rem;
-    transition:0.3s;
-}
-.service-box:hover i{transform:rotate(10deg);color:#e8c573;}
-
-/* ---------------- TEAM ---------------- */
-.team-grid{
-    margin-top:60px;
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:40px;text-align:center;
-}
-.team-box img{
-    width:120px;height:120px;border-radius:50%;
-    margin-bottom:12px;
-    border:4px solid #eee;
-    transition:0.3s;
-}
-.team-box img:hover{transform:scale(1.06);box-shadow:0 0 35px rgba(232,197,115,0.15);}
-
-/* ---------------- PRICING ---------------- */
-.pricing-grid{
-    margin-top:60px;
-    display:flex;flex-wrap:wrap;gap:30px;justify-content:center;
-}
-.price-box{
-    width:280px;text-align:center;transition:0.3s, box-shadow 0.4s;
-}
-.price-box:hover{box-shadow:0 10px 35px rgba(232,197,115,0.15);}
-.price{font-size:2.4rem;font-weight:700;margin:10px 0;}
-
-/* ---------------- BLOG ---------------- */
-.blog-grid{
-    margin-top:60px;
-    display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:35px;
-}
-.blog-box img{
-    width:100%;border-radius:14px;margin-bottom:12px;transition:0.3s;
-}
-.blog-box:hover img{transform:scale(1.03);box-shadow:0 8px 25px rgba(232,197,115,0.1);}
-.blog-box h3{font-size:1.15rem;}
-
-/* ---------------- TESTIMONIAL ---------------- */
-.testimonial{
-    padding:35px;text-align:center;background:#fff;border-radius:15px;transition:0.3s;
-    box-shadow:0 3px 20px rgba(0,0,0,0.05);
-}
-.testimonial:hover{box-shadow:0 12px 35px rgba(232,197,115,0.12);}
-
-/* ---------------- CONTACT ---------------- */
-form{
-    max-width:650px;margin:50px auto;
-}
-input,textarea{
-    width:100%;padding:14px;border-radius:12px;
-    border:1px solid #ddd;font-size:1rem;margin-bottom:14px;
-    background:#fff;
-}
-button{
-    padding:16px;width:100%;border:none;border-radius:12px;
-    background:#000;color:white;
-    font-size:1.1rem;font-weight:600;
-    transition:0.3s;
-}
-button:hover{background:#333;transform:scale(1.02);}
-
-/* ---------------- FLOAT BUTTON ---------------- */
-.float-contact{
-    position:fixed;bottom:30px;right:30px;
-    background:#000;color:white;padding:16px 26px;border-radius:50px;
-    text-decoration:none;font-weight:600;
-    box-shadow:0 5px 20px rgba(0,0,0,0.15);
-    transition:0.3s;
-}
-.float-contact:hover{background:#222;box-shadow:0 8px 30px rgba(232,197,115,0.2);}
-
-/* ---------------- FOOTER ---------------- */
-footer{
-    margin-top:70px;text-align:center;padding:25px;color:#777;
+h1, h2, h3 {
+  letter-spacing: -0.5px;
 }
 
-/* ---------------- RESPONSIVE ---------------- */
-@media(max-width:850px){
-    header h1{font-size:3rem;}
-    .section{padding:90px 22px;}
-    nav a{margin:0 12px;font-size:0.92rem;}
+h2 {
+  font-size: 2.6rem;
+  text-align: center;
+  margin-bottom: 18px;
+  font-weight: 700;
 }
-@media(max-width:550px){
-    header h1{font-size:2.4rem;}
-    header p{font-size:1rem;}
-    .btn{padding:12px 25px;}
-    .section{padding:70px 18px;}
-    nav a{margin:0 8px;font-size:0.85rem;}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  max-width: 650px;
+  margin: auto;
+  font-size: 1.15rem;
+  margin-bottom: 55px;
+}
+
+/* NAVIGATION */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  backdrop-filter: blur(18px);
+  background: rgba(255,255,255,0.9);
+  padding: 12px 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+nav .nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 6vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .logo {
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+/* Desktop links */
+nav .links {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+nav .links a {
+  color: #222;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: 0.3s;
+}
+nav .links a:hover {
+  opacity: 0.6;
+}
+
+/* Hamburger for mobile */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 26px;
+  height: 24px;
+  cursor: pointer;
+}
+.hamburger span {
+  height: 2px;
+  width: 100%;
+  background: #111;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+/* HEADER */
+header {
+  min-height: 92vh;
+  padding-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 22px;
+  background: #fafafa;
+}
+header h1 {
+  font-size: 3.4rem;
+  font-weight: 700;
+  max-width: 780px;
+}
+header p {
+  max-width: 650px;
+  color: #555;
+  font-size: 1.18rem;
+}
+header .tagline {
+  font-size: 0.98rem;
+  color: #777;
+}
+
+.btn {
+  margin-top: 25px;
+  padding: 15px 40px;
+  background: black;
+  color: white;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  display: inline-block;
+}
+.btn:hover {
+  transform: scale(1.04);
+  opacity: 0.9;
+}
+
+/* CARDS */
+.card {
+  background: #fff;
+  padding: 38px;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.06);
+  box-shadow: 0 4px 28px rgba(0,0,0,0.04);
+  transition: 0.4s;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+/* GRID LAYOUTS */
+.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 38px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 38px;
+  margin-top: 30px;
+}
+.testimonial {
+  padding: 28px;
+  text-align: left;
+  border-radius: 18px;
+  background: #fafafa;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+.testimonial p {
+  margin-bottom: 10px;
+}
+
+/* PRICING */
+.pricing-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+.price {
+  font-size: 2.2rem;
+  margin: 12px 0;
+  font-weight: 700;
+}
+.plan-note {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* BLOG */
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 40px;
+}
+.blog-box img {
+  width: 100%;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  transition: 0.3s;
+}
+.blog-box:hover img {
+  transform: scale(1.03);
+}
+
+/* CONTACT */
+form {
+  max-width: 600px;
+  margin: 40px auto 0;
+}
+input, textarea {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  margin-bottom: 14px;
+  font-family: inherit;
+  font-size: 0.98rem;
+}
+button {
+  padding: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  background: black;
+  color: white;
+  font-size: 1.05rem;
+  font-weight: 600;
+  transition: 0.3s;
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.85;
+}
+
+/* FOOTER */
+footer {
+  padding: 45px 0;
+  text-align: center;
+  color: #777;
+  margin-top: 60px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+footer .social-links {
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+footer .social-links img {
+  width: 28px;
+  height: 28px;
+}
+
+/* TABLET (<= 900px) */
+@media (max-width: 900px) {
+  header h1 { font-size: 2.6rem; }
+  header p { font-size: 1.05rem; }
+  .section { padding: 90px 5vw; }
+
+  nav .links a {
+    margin: 0 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* MOBILE (<= 700px) */
+@media (max-width: 700px) {
+  .section {
+    padding: 70px 5vw;
+  }
+
+  header {
+    padding-top: 100px;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+  header p {
+    font-size: 0.98rem;
+  }
+
+  /* Nav: show hamburger, hide inline links */
+  nav .links {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    left: 0;
+    background: #ffffff;
+    padding: 16px 6vw 18px;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  nav .links a {
+    font-size: 0.95rem;
+    margin: 0;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  nav .links.show {
+    display: flex;
+  }
+
+  .card {
+    padding: 26px;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* VERY SMALL (<= 400px) */
+@media (max-width: 400px) {
+  header h1 {
+    font-size: 1.8rem;
+  }
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-<a href="#about">About</a>
-<a href="#services">Services</a>
-<a href="#team">Team</a>
-<a href="#pricing">Pricing</a>
-<a href="#blog">Insights</a>
-<a href="#contact">Contact</a>
+  <div class="nav-inner">
+    <div class="logo">Nivara</div>
+
+    <div class="hamburger" id="navToggle" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#why">Why Nivara</a>
+      <a href="#services">Services</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
 </nav>
 
-<!-- HEADER -->
 <header>
-<h1>Nivara Consultancy</h1>
-<p>Smart, simple, and modern business guidance for small local businesses starting their journey.</p>
-<a href="#contact" class="btn">Book Your Free Call</a>
+  <p class="tagline">Consulting for India’s local businesses</p>
+  <h1>Smart, simple growth support for shop owners, traders and service businesses.</h1>
+  <p>Get clear guidance, action-focused plans and WhatsApp-friendly support, without corporate jargon or confusing English.</p>
+
+  <div style="display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:10px; font-size:0.9rem; color:#666;">
+    <span>✔ Kirana & retail shops</span>
+    <span>✔ Traders & distributors</span>
+    <span>✔ Local service businesses</span>
+  </div>
+
+  <a href="#contact" class="btn">Book Your Free 20-Min Call</a>
 </header>
 
-<!-- ABOUT -->
 <section id="about" class="section">
-<h2>About Nivara</h2>
-<p class="subtitle">We help small businesses understand their market, improve operations, and grow with simple, actionable strategies — without confusing corporate jargon.</p>
-<div class="stats">
-<div class="stat"><h3 data-count="50">0</h3><p>Local Businesses Helped</p></div>
-<div class="stat"><h3 data-count="15">0</h3><p>Industries Served</p></div>
-<div class="stat"><h3 data-count="5">0</h3><p>Years Experience</p></div>
-<div class="stat"><h3 data-count="98">0</h3><p>Satisfaction Score %</p></div>
-</div>
+  <h2>About Nivara</h2>
+  <p class="subtitle">Nivara Consultancy helps small local businesses plan growth, organise operations, and set simple monthly targets they can actually follow.</p>
+  
+  <div class="services" style="margin-top:40px;">
+    <div class="card">
+      <h3>Built for small business</h3>
+      <p>Focus on kirana, retail shops, traders and service providers who want structured growth but don’t like heavy theory.</p>
+    </div>
+    <div class="card">
+      <h3>Action over theory</h3>
+      <p>Every session ends with a clear, 1–2 page action plan you can start within the same week.</p>
+    </div>
+    <div class="card">
+      <h3>Simple language</h3>
+      <p>Hindi + English mix communication so that the full family or team can understand the plan easily.</p>
+    </div>
+  </div>
 </section>
 
-<!-- SERVICES -->
+<section id="why" class="section">
+  <h2>Why Nivara</h2>
+  <p class="subtitle">Clear, practical support for owners who want results but don’t have time for complex frameworks.</p>
+
+  <div class="services">
+    <div class="card">
+      <h3>Local market understanding</h3>
+      <p>Ground-level experience with Indian small businesses, not just big corporate case studies.</p>
+    </div>
+    <div class="card">
+      <h3>WhatsApp-first approach</h3>
+      <p>Updates, reminders and quick check-ins directly on WhatsApp for easy follow-up.</p>
+    </div>
+    <div class="card">
+      <h3>Flexible engagement</h3>
+      <p>Start with one session or move to monthly guidance depending on your comfort and budget.</p>
+    </div>
+  </div>
+</section>
+
 <section id="services" class="section">
-<h2>Services</h2>
-<p class="subtitle">Simple, effective solutions designed for new and growing small businesses.</p>
-<div class="services">
-<div class="card service-box"><i data-feather="briefcase"></i><h3>Business Planning</h3><p>Clarity on business goals, strategy, and practical next steps for small businesses.</p></div>
-<div class="card service-box"><i data-feather="pie-chart"></i><h3>Marketing Setup</h3><p>Branding, website, social media, and simple digital marketing for growth.</p></div>
-<div class="card service-box"><i data-feather="trending-up"></i><h3>Growth Guidance</h3><p>Monthly guidance, KPIs, and actionable advice to scale effectively.</p></div>
-<div class="card service-box"><i data-feather="layers"></i><h3>Operations Support</h3><p>Help with workflows, processes, and operational stability for early-stage businesses.</p></div>
-</div>
+  <h2>Our Services</h2>
+  <p class="subtitle">Clear, effective solutions tailored for local business owners across retail, trading and services.</p>
+
+  <div class="services">
+    <div class="card">
+      <h3>Business Planning</h3>
+      <p>Step-by-step roadmap for the next 3–6 months, with sales, profit and stock targets.</p>
+      <p style="margin-top:8px; font-size:0.9rem; color:#666;">Best for: New or shifting businesses.</p>
+    </div>
+    <div class="card">
+      <h3>Marketing Setup</h3>
+      <p>Basic branding, WhatsApp catalogue, Google profile and simple digital presence to stand out locally.</p>
+      <p style="margin-top:8px; font-size:0.9rem; color:#666;">Best for: Retail, service and local shops.</p>
+    </div>
+    <div class="card">
+      <h3>Growth Guidance</h3>
+      <p>Monthly consulting with KPI tracking, weekly check-ins and clear next-step actions.</p>
+      <p style="margin-top:8px; font-size:0.9rem; color:#666;">Best for: Running businesses ready to scale.</p>
+    </div>
+    <div class="card">
+      <h3>Operations Support</h3>
+      <p>Improve daily workflow, stock control, staff clarity and simple reporting formats.</p>
+      <p style="margin-top:8px; font-size:0.9rem; color:#666;">Best for: Shops and traders with team or staff.</p>
+    </div>
+  </div>
 </section>
 
-<!-- TEAM -->
-<section id="team" class="section">
-<h2>The Founder</h2>
-<div class="team-grid">
-<div class="card team-box">
-<img src="https://i.ibb.co/sqhDfsT/profile.png" alt="Keyur Patel">
-<h3>Keyur Patel</h3>
-<p style="color:#444;">Founder & Consultant</p>
-<p style="font-size:0.95rem;color:#666;">Helping small local businesses grow with practical and honest consulting services.</p>
-</div>
-</div>
+<section id="how" class="section">
+  <h2>How Nivara Works</h2>
+  <p class="subtitle">Simple 3-step process so you always know what will happen next.</p>
+
+  <div class="services" style="margin-top:40px;">
+    <div class="card">
+      <h3>1. Free 20-min call</h3>
+      <p>Short call to understand your business, main problems and whether Nivara is the right fit for you.</p>
+    </div>
+    <div class="card">
+      <h3>2. Deep-dive session</h3>
+      <p>We review your current numbers, customers, operations and marketing, then create a clear action plan.</p>
+    </div>
+    <div class="card">
+      <h3>3. Ongoing support</h3>
+      <p>Depending on your plan, you get regular calls and WhatsApp check-ins to make sure actions are actually done.</p>
+    </div>
+  </div>
 </section>
 
-<!-- PRICING -->
 <section id="pricing" class="section">
-<h2>Plans</h2>
-<p class="subtitle">Affordable plans made specially for early-stage small businesses.</p>
-<div class="pricing-grid">
-<div class="card price-box"><h3>Starter</h3><div class="price">₹4,999</div><p>1 session<br>Business review<br>Actionable plan</p></div>
-<div class="card price-box" style="border:1.5px solid #000;"><h3>Growth</h3><div class="price">₹11,999</div><p>Monthly consulting<br>Marketing setup<br>Weekly guidance</p></div>
-<div class="card price-box"><h3>Pro Support</h3><div class="price">₹19,999</div><p>Full growth plan<br>Branding support<br>Priority support</p></div>
-</div>
+  <h2>Plans</h2>
+  <p class="subtitle">Simple, transparent pricing designed for small business budgets.</p>
+
+  <div class="pricing-grid">
+    <div class="card">
+      <h3>Starter</h3>
+      <div class="price">₹4,999</div>
+      <p>1 Strategy Session<br>Business Review<br>3–4 Week Action Plan</p>
+      <p class="plan-note">Ideal for testing consultancy with minimum risk.</p>
+    </div>
+
+    <div class="card" style="border:1.4px solid black;">
+      <h3>Growth</h3>
+      <div class="price">₹11,999</div>
+      <p>Monthly Consulting (4 calls)<br>Marketing Setup Support<br>Weekly WhatsApp Check-ins</p>
+      <p class="plan-note">Best for active shops and service businesses.</p>
+    </div>
+
+    <div class="card">
+      <h3>Pro</h3>
+      <div class="price">₹19,999</div>
+      <p>Full 3-Month Growth Plan<br>Branding & Positioning Support<br>Priority Assistance</p>
+      <p class="plan-note">Customised for traders, distributors and multi-location owners.</p>
+    </div>
+  </div>
+
+  <p style="text-align:center; margin-top:25px; color:#666; font-size:0.95rem;">
+    Need a custom plan? Contact us with your business details for a tailored quote.
+  </p>
 </section>
 
-<!-- BLOG -->
 <section id="blog" class="section">
-<h2>Insights</h2>
-<p class="subtitle">Short, simple knowledge for small business owners.</p>
-<div class="blog-grid">
-<div class="card blog-box"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&w=900&q=80" alt=""><h3>How to grow your local business in 2025</h3></div>
-<div class="card blog-box"><img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?auto=format&w=900&q=80" alt=""><h3>Beginner-friendly digital marketing tips</h3></div>
-<div class="card blog-box"><img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&w=900&q=80" alt=""><h3>Why every small business needs a simple plan</h3></div>
-</div>
+  <h2>Insights</h2>
+  <p class="subtitle">Short, practical ideas for business owners to think and act smarter.</p>
+
+  <div class="blog-grid">
+    <div class="card blog-box">
+      <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&q=80" alt="Local customer footfall" />
+      <h3>Increase Local Customer Footfall</h3>
+      <p style="margin-top:8px; color:#666; font-size:0.95rem;">Simple changes around signage, layout and offers that bring more walk-ins.</p>
+    </div>
+    <div class="card blog-box">
+      <img src="https://images.unsplash.com/photo-1523961131990-5ea7c61b2107?auto=format&q=80" alt="Digital marketing tips" />
+      <h3>Simple Digital Marketing Tips</h3>
+      <p style="margin-top:8px; color:#666; font-size:0.95rem;">Easy, low-cost ways to use WhatsApp, Google and social media for visibility.</p>
+    </div>
+    <div class="card blog-box">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&q=80" alt="Budget brand identity" />
+      <h3>Budget-Friendly Brand Identity</h3>
+      <p style="margin-top:8px; color:#666; font-size:0.95rem;">How to look professional without spending like a big brand.</p>
+    </div>
+  </div>
 </section>
 
-<!-- CONTACT -->
+<section class="section" id="founder">
+  <h2>Meet the Founder</h2>
+  <p class="subtitle">Real guidance from someone who has worked on both sides – as an employee and as a small business owner.</p>
+
+  <div class="services" style="margin-top:40px;">
+    <div class="card">
+      <h3>Hi, I’m Keyur Dudhatra</h3>
+      <p>Based in Rajkot, Gujarat, I’ve worked in operations and business roles before starting Nivara Consultancy. I understand how tough it is to manage staff, stock, customers and cash flow at the same time.</p>
+    </div>
+    <div class="card">
+      <h3>Why I started Nivara</h3>
+      <p>Most local businesses don’t need heavy “MBA style” consulting. They need simple, clear steps in easy language that actually fit their city, market and budget.</p>
+    </div>
+    <div class="card">
+      <h3>How I work with you</h3>
+      <p>We look at your numbers, problems and current situation together, then build a practical plan you can start in the next 7–10 days, with support on WhatsApp.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Client Results</h2>
+  <p class="subtitle">Early outcomes from local businesses working with Nivara-style support.</p>
+
+  <div class="testimonial-grid">
+    <div class="testimonial">
+      <p>“2 mahine mein daily customers 20% badhe, aur stock planning clear ho gayi, toh wastage kam ho gaya.”</p>
+      <p style="font-weight:600;">— Kirana Store, Rajkot</p>
+    </div>
+    <div class="testimonial">
+      <p>“Marketing plan simple tha, par WhatsApp se regular enquiries aani shuru ho gayi, bina extra staff ke.”</p>
+      <p style="font-weight:600;">— Local Service Business</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <p class="subtitle">Clear answers before you decide to book a call.</p>
+
+  <div class="services" style="margin-top:40px;">
+    <div class="card">
+      <h3>Is this only for big businesses?</h3>
+      <p>No. Nivara is built specifically for small and growing local businesses – shops, traders and service providers.</p>
+    </div>
+    <div class="card">
+      <h3>Which language do you use?</h3>
+      <p>Mostly Hindi + English mix, so you and your team can easily understand and implement every step.</p>
+    </div>
+    <div class="card">
+      <h3>Do you work only in Rajkot?</h3>
+      <p>In-person support is available in and around Rajkot. For other cities, all sessions are done online (phone, video and WhatsApp).</p>
+    </div>
+    <div class="card">
+      <h3>Is there any guarantee?</h3>
+      <p>Business results depend on market and implementation, but every plan includes clear actions and support so you’re never confused about what to do next.</p>
+    </div>
+  </div>
+</section>
+
 <section id="contact" class="section">
-<h2>Contact</h2>
-<p class="subtitle">Book a free consultation call with Keyur.</p>
-<form onsubmit="contact(event)">
-<input type="text" placeholder="Full Name" required>
-<input type="email" placeholder="Email Address" required>
-<input type="text" placeholder="Business Name (optional)">
-<textarea rows="6" placeholder="Message"></textarea>
-<button>Send Message</button>
-</form>
-<p style="text-align:center;margin-top:20px;color:#555;">📞 +91 9586490706 • ✉️ keyur9744@gmail.com</p>
+  <h2>Contact Us</h2>
+  <p class="subtitle">Short form bharo ya direct WhatsApp karein. Reply within 24 hours (often faster).</p>
+
+
+
+  <div style="text-align:center; margin-top:32px; color:#666; font-size:0.9rem;">
+    <strong>Business Name:</strong> Nivara Consultancy<br />
+    <strong>Location:</strong> Rajkot, Gujarat, India<br />
+    <strong>WhatsApp / Phone:</strong> +91 95864 90706<br />
+    <strong>Email:</strong> hello@nivaraconsultancy.in
+  </div>
 </section>
 
-<footer>© 2025 Nivara Consultancy — Built for Small Businesses</footer>
-<a class="float-contact" href="#contact">Talk to Us</a>
+<footer>
+  <div class="social-links">
+    <a href="https://wa.me/919586490706" target="_blank" style="text-decoration:none;">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+    </a>
+    <a href="https://www.instagram.com/keyur_dudhatra" target="_blank" style="text-decoration:none;">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+    </a>
+    <a href="https://www.linkedin.com/in/yourprofile" target="_blank" style="text-decoration:none;">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733561.png" alt="LinkedIn" />
+    </a>
+  </div>
+  © 2025 Nivara Consultancy — Empowering Small Businesses
+</footer>
 
 <script>
-feather.replace();
+  // Simple mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
 
-/* SECTION ANIMATIONS */
-const sections=document.querySelectorAll(".section");
-function showSections(){
-sections.forEach(s=>{if(s.getBoundingClientRect().top<window.innerHeight-120){s.classList.add("visible");}});
-}
-window.addEventListener("scroll",showSections);showSections();
+  navToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
 
-/* COUNTERS */
-const counters=document.querySelectorAll("[data-count]");
-let started=false;
-function runCounters(){
-if(started)return;
-if(document.querySelector(".stats").getBoundingClientRect().top<window.innerHeight){
-counters.forEach(c=>{
-let target=+c.dataset.count,count=0,speed=target/80;
-let interval=setInterval(()=>{
-count+=speed;
-if(count>=target){count=target;clearInterval(interval);}
-c.textContent=Math.floor(count);
-},20);
-});
-started=true;
-}}
-window.addEventListener("scroll",runCounters);
-
-/* FORM MESSAGE */
-function contact(e){e.preventDefault();alert("Thank you! We will contact you shortly.");}
+  // Close menu when link clicked (mobile)
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('show');
+    });
+  });
 </script>
+
 </body>
 </html>
