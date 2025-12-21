@@ -22,7 +22,6 @@
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-
 html{scroll-behavior:smooth}
 
 body{
@@ -148,9 +147,7 @@ footer img{width:26px;transition:.3s}
 footer img:hover{transform:scale(1.15)}
 
 /* RESPONSIVE */
-@media(max-width:900px){
-  header h1{font-size:2.2rem}
-}
+@media(max-width:900px){header h1{font-size:2.2rem}}
 @media(max-width:700px){
   .section{padding:80px 6vw}
   .links{
@@ -161,12 +158,8 @@ footer img:hover{transform:scale(1.15)}
   .links.show{display:flex}
   .hamburger{display:flex}
 }
-@media(max-width:600px){
-  header{min-height:auto;padding-top:80px}
-}
-@media(max-width:360px){
-  header h1{font-size:1.9rem}
-}
+@media(max-width:600px){header{min-height:auto;padding-top:80px}}
+@media(max-width:360px){header h1{font-size:1.9rem}}
 
 /* WhatsApp */
 .whatsapp-float{
@@ -179,6 +172,25 @@ footer img:hover{transform:scale(1.15)}
   z-index:9999;
 }
 .whatsapp-float img{width:26px;height:26px}
+
+.social-links {
+  display: flex;
+  gap: 15px; /* icons ke beech ka space */
+  justify-content: center; /* center align */
+  align-items: center;
+  margin: 20px 0;
+}
+
+.social-links a img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.social-links a:hover img {
+  transform: scale(1.2); /* hover effect */
+  opacity: 0.8;
+}
 </style>
 </head>
 
@@ -207,7 +219,23 @@ footer img:hover{transform:scale(1.15)}
 </nav>
 
 
-
+<nav>
+  <div class="nav-inner">
+    <div class="logo">Nivara</div>
+    <div class="hamburger" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#why">Why Nivara</a>
+      <a href="#services">Services</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
 
 <header>
   <p class="tagline">Consulting for India’s local businesses</p>
@@ -217,7 +245,7 @@ footer img:hover{transform:scale(1.15)}
     <span>✔ Kirana & retail shops</span>
     <span>✔ Traders & distributors</span>
     <span>✔ Local service businesses</span>
-  </div><br><br>
+  </div>
   <a href="#contact" class="btn">Book Your Free 20-Min Call</a>
 </header>
 
@@ -311,79 +339,35 @@ footer img:hover{transform:scale(1.15)}
 
 <section id="pricing" class="section">
   <h2>Plans</h2>
-  <p class="subtitle">
-    Choose a plan based on your current stage — not your business size.
-  </p>
+  <p class="subtitle">Simple, transparent pricing designed for small business budgets.</p>
 
   <div class="pricing-grid">
-
-    <!-- STARTER PLAN -->
     <div class="card">
-      <h3>Starter – Career & Entry</h3>
+      <h3>Starter</h3>
       <div class="price">₹4,999</div>
-
-      <p>
-        Career Direction Session<br>
-        Job vs Business Clarity<br>
-        Skill & Role Mapping<br>
-        Business Partner Readiness<br>
-        3–4 Week Personal Action Plan
-      </p>
-
-      <p style="margin-top:14px;font-size:0.95rem;color:var(--muted);">
-        Ideal for students or beginners who want clarity before choosing a job
-        or entering a business partnership.
-      </p>
+      <p>1 Strategy Session<br>Business Review<br>3–4 Week Action Plan</p>
+      <p class="plan-note">Ideal for testing consultancy with minimum risk.</p>
     </div>
 
-    <!-- GROWTH PLAN -->
-    <div class="card" style="border:2px solid var(--accent2);">
-      <h3>Growth – Solo Business</h3>
+    <div class="card" style="border:1.4px solid black;">
+      <h3>Growth</h3>
       <div class="price">₹11,999</div>
-
-      <p>
-        Solo Business Growth Plan<br>
-        Sales & Profit Improvement<br>
-        Marketing & Customer Strategy<br>
-        Time & Task Management<br>
-        Weekly WhatsApp Follow-ups<br>
-        Monthly Growth Tracking
-      </p>
-
-      <p style="margin-top:14px;font-size:0.95rem;color:var(--muted);">
-        Best for solo business owners who want to expand, increase income
-        and run their business professionally.
-      </p>
+      <p>Monthly Consulting (4 calls)<br>Marketing Setup Support<br>Weekly WhatsApp Check-ins</p>
+      <p class="plan-note">Best for active shops and service businesses.</p>
     </div>
 
-    <!-- PRO PLAN -->
     <div class="card">
-      <h3>Pro – Group / Family Business</h3>
+      <h3>Pro</h3>
       <div class="price">₹19,999</div>
-
-      <p>
-        Group Business Structuring<br>
-        Partner Role & Responsibility Division<br>
-        Workflow & Process Setup<br>
-        Decision-Making System<br>
-        3-Month Stability & Growth Plan<br>
-        Priority WhatsApp & Call Support
-      </p>
-
-      <p style="margin-top:14px;font-size:0.95rem;color:var(--muted);">
-        Designed for family or partnership businesses that need clear roles,
-        smooth coordination and long-term stability.
-      </p>
+      <p>Full 3-Month Growth Plan<br>Branding & Positioning Support<br>Priority Assistance</p>
+      <p class="plan-note">Customised for traders, distributors and multi-location owners.</p>
     </div>
-
   </div>
 
-  <p style="text-align:center;margin-top:28px;color:var(--muted);font-size:0.95rem;">
-    Not sure which plan fits you?  
-    <strong>Book a free 20-minute call</strong> and we’ll guide you.
+  <p style="text-align:center; margin-top:25px; color:#666; font-size:0.95rem;">
+    Need a custom plan? Contact us with your business details for a tailored quote.
   </p>
 </section>
-
 
 <section id="blog" class="section">
   <h2>Insights</h2>
@@ -480,12 +464,20 @@ footer img:hover{transform:scale(1.15)}
 </section>
 
 <footer>
-  <div class="social-links">
-    <a href="https://wa.me/919586490706" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png"></a>
-    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"></a>
-    <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/733/733561.png"></a>
-  </div>
-  © 2025 Nivara Consultancy — Empowering Small Businesses
+   <div class="social-links">
+    <!-- WhatsApp -->
+    <a href="https://wa.me/919586490706" target="_blank" aria-label="Chat on WhatsApp">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp">
+    </a>
+
+    <!-- Instagram -->
+    <a href="https://www.instagram.com/nivaraconsultancy_/" target="_blank" aria-label="Instagram">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">
+    </a>
+
+    </div>
+
+  <p>© 2025 Nivara Consultancy — Empowering Small Businesses</p>
 </footer>
 
 <script>
